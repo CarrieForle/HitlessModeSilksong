@@ -23,7 +23,6 @@ public partial class HitlessModePlugin : BaseUnityPlugin
 	internal static ConfigEntry<bool> ConfigShowHp;
 	internal static bool IsCustomMode => FragileMode.Enabled || GlassMode.Enabled || ConfigApplyAllModes;
 	internal static new ManualLogSource Logger;
-	private bool inFirstBindPrompt = false;
 	private GameObject eventGo;
 	private Transform? hp;
 	private Transform? Hp
