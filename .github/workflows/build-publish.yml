@@ -30,7 +30,7 @@ jobs:
       version: ${{ steps.version.outputs.version }}
       attestation-url: ${{ steps.attest.outputs.attestation-url }}
       # when you are ready to publish your first release, change this to 'true'
-      allow-release: 'false'
+      allow-release: 'true'
       is-new-version: ${{ !fromJSON(steps.needs-release.outputs.exists || 'true') }}
       thunderstore-artifact-id: ${{ steps.thunderstore-artifact.outputs.artifact-id }}
 
@@ -45,20 +45,15 @@ jobs:
     - name: Get Version
       id: version
       run: |-
-        VERSION=$(dotnet build GlassMode.csproj -getProperty:Version)
+        VERSION=$(dotnet build HitlessMode.csproj -getProperty:Version)
         echo Version is $VERSION
         echo "version=$VERSION" >> $GITHUB_OUTPUT
+      working-directory: HitlessMode
     - name: Upload thunderstore artifact
       id: thunderstore-artifact
       uses: actions/upload-artifact@v7
       with:
-        path: thunderstore/dist/*.zip
-        archive: false
-    - name: Upload nuget artifact
-      id: nuget-artifact
-      uses: actions/upload-artifact@v7
-      with:
-        path: nuget/*.nupkg
+        path: HitlessMode/thunderstore/dist/*.zip
         archive: false
     - name: Check if release needed
       id: needs-release
@@ -72,8 +67,7 @@ jobs:
       if: github.event_name == 'push' && steps.needs-release.outputs.exists == 'false'
       with:
         subject-path: |
-          thunderstore/dist/*.zip
-          nuget/*.nupkg
+          HitlessMode/thunderstore/dist/*.zip
 
   # Publish to Thunderstore to that users can install it
   release-thunderstore:
@@ -92,7 +86,7 @@ jobs:
         (
           github.event_name == 'workflow_dispatch' &&
           github.event.inputs.force_thunderstore == 'true'
-        )
+        ) 
       )
     # Do not substitute your Thunderstore API key in this workflow! Instead, add a secret to your repository.
     # https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets
@@ -111,7 +105,7 @@ jobs:
       uses: actions/download-artifact@v8
       with:
         artifact-ids: ${{ needs.build.outputs.thunderstore-artifact-id }}
-        path: thunderstore/dist
+        path: HitlessMode/thunderstore/dist
         skip-decompress: true
     - name: Publish to Thunderstore
       run: |-
@@ -119,6 +113,7 @@ jobs:
           --config-path thunderstore/thunderstore.toml \
           --file thunderstore/dist/*.zip \
           --token $THUNDERSTORE_API_KEY
+      working-directory: HitlessMode
 
   # Publish to GitHub releases to keep release history on the repository (needed for this workflow to work properly
   # but is also nice for multiple other reasons such as auto-tagging *after* a build success)
@@ -133,7 +128,7 @@ jobs:
       uses: actions/download-artifact@v8
       with:
         artifact-ids: ${{ needs.build.outputs.thunderstore-artifact-id }}
-        path: thunderstore/dist
+        path: HitlessMode/thunderstore/dist
         skip-decompress: true
     - name: Release
       uses: softprops/action-gh-release@v2
@@ -145,7 +140,7 @@ jobs:
         body: |
           Build attested at ${{ needs.build.outputs.attestation-url }}
         files: |
-          thunderstore/dist/*.zip
+          HitlessMode/thunderstore/dist/*.zip
 
   secret-check:
     runs-on: ubuntu-latest
