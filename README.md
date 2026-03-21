@@ -1,4 +1,4 @@
-# GlassMode
+# HitlessMode
 
 This mod adds two game modes for hitless:
 - Fragile Soul: Hitless but you can still respawn.
