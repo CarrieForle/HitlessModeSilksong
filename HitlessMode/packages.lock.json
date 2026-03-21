@@ -20,9 +20,9 @@
       },
       "Hamunii.BepInEx.AutoPlugin": {
         "type": "Direct",
-        "requested": "[2.0.1, )",
-        "resolved": "2.0.1",
-        "contentHash": "UDVQtYOGU1v+xkYIRubm4zSIRtCW42kWgJ3sXIbqYSD1qSseH9gU44+zQMNRCy3BYXITtwWE3RqoyJdWUjDASA=="
+        "requested": "[2.1.0, )",
+        "resolved": "2.1.0",
+        "contentHash": "EuH0DoeBkpEiLYwCVZrlrQiNoqYi7U42+MCGpVim22erghvYYjPosEQTCHMsmyyBjLO/0NuLCu4I9aO/EkjVRQ=="
       },
       "Harmonize": {
         "type": "Direct",
@@ -49,8 +49,8 @@
       "Silksong.GameLibs": {
         "type": "Direct",
         "requested": "[*-*, )",
-        "resolved": "1.2.0-silksong1.0.29315",
-        "contentHash": "MwcUC0FMUn7aCwYHWgQegOBxNGgNBDie9nfg0GeodqbnfrHOjUZ06sZjq+0Iiz9/WBL8yd511YZujFS91FgVMw=="
+        "resolved": "1.2.0-silksong1.0.29926",
+        "contentHash": "53CtxInuijj4nLnLL9oL6X6aQir/x6dxZha14dFaMzfa5WnO4kjhyto8EevONKVhsL6b+yXbinwkGOsV0Qtuag=="
       },
       "UnityEngine.Modules": {
         "type": "Direct",
