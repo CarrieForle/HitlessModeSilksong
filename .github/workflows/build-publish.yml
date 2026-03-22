@@ -40,6 +40,10 @@ jobs:
       uses: actions/setup-dotnet@v5
       with:
         dotnet-version: 10.x
+    - run: mkdir HitlessMode/deps
+    - run: wget -O SkongGamemodes.zip https://thunderstore.io/package/download/DerVorce/SkongGamemodes/1.2.0/
+    - run: unzip SkongGamemodes.zip -d SkongGamemodes
+    - run: cp SkongGamemodes/SkongGamemodes.dll HitlessMode/deps/SkongGamemodes.dll
     - name: Build
       run: dotnet build -c Release --verbosity normal
     - name: Get Version
