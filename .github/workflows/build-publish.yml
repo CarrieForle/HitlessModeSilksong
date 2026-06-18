@@ -35,7 +35,7 @@ jobs:
       thunderstore-artifact-id: ${{ steps.thunderstore-artifact.outputs.artifact-id }}
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
       with:
@@ -98,7 +98,7 @@ jobs:
       THUNDERSTORE_API_KEY: ${{ secrets.THUNDERSTORE_API_KEY }}
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
       with:
