@@ -42,15 +42,15 @@
       },
       "Microsoft.Unity.Analyzers": {
         "type": "Direct",
-        "requested": "[1.26.0, )",
-        "resolved": "1.26.0",
-        "contentHash": "lU4QRpGxzwBGkDJs86Q18CwhiqigssQrItJFr+c1Ijra35Y/uTwV/bRiSIYcXSaWl9RsXCi6dqG4xVAXb9sCtQ=="
+        "requested": "[1.27.0, )",
+        "resolved": "1.27.0",
+        "contentHash": "S8eU12HzdUjN++OBz7F08ft3weYbk5DR1rKKjCvpugqtdGHHC4Om8fJ/jGnJ5QMJY+SzzFHQTyQqfA1neAV+pw=="
       },
       "Silksong.GameLibs": {
         "type": "Direct",
         "requested": "[*-*, )",
-        "resolved": "1.2.0-silksong1.0.29926",
-        "contentHash": "53CtxInuijj4nLnLL9oL6X6aQir/x6dxZha14dFaMzfa5WnO4kjhyto8EevONKVhsL6b+yXbinwkGOsV0Qtuag=="
+        "resolved": "1.2.0-silksong1.0.30000",
+        "contentHash": "2JPRsmFO5dBwLeIHA3kLlEYtu4BQ0Swdp3E4+J35IQGEujW3npMPot83BvY9wd3N7/Ycy2IfWilWC7fx6Sa3bg=="
       },
       "UnityEngine.Modules": {
         "type": "Direct",
